@@ -21,3 +21,32 @@ const listaDeLivros = [
     anoDePublicacao: 1999,
   },
 ];
+
+const containerLivros = document.querySelector(".container");
+containerLivros.innerHTML = "";
+
+function adicionarLivros(listaDeLivros){
+
+  for(let i = 0; i < listaDeLivros.length; ++i){
+
+    let tagLi = document.createElement("li");
+    let tagP1 = document.createElement("p");
+    let tagP2 = document.createElement("p");
+
+    tagLi.classList.add("livros");
+    tagP1.innerText = `${listaDeLivros[i].nome}`;
+    tagP2.innerText = `${listaDeLivros[i].anoDePublicacao}`;
+
+    if(listaDeLivros[i].anoDePublicacao <= 1997 || listaDeLivros[i].anoDePublicacao >= 2000){
+      tagLi.classList.add("destaque");
+    }
+
+    tagLi.appendChild(tagP1);
+    tagLi.appendChild(tagP2);
+    containerLivros.appendChild(tagLi);
+
+  }
+
+}
+adicionarLivros(listaDeLivros);
+
